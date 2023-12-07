@@ -11,9 +11,9 @@ import java.util.*;
         System.out.println("Type in end to stop the interpreter.");
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
-        do {
-
-        } while(!input.equalsIgnoreCase("end"));
+        while(!input.equalsIgnoreCase("end")) {
+            Toy_Interpreter userInputs = new Toy_Interpreter((input));
+        }
     }
     public static void main(String[] args) {
         start();

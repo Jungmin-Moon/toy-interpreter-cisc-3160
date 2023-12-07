@@ -4,6 +4,7 @@ public class Toy_Interpreter {
     //create Dicts here of valid inputs
     //find a way to interpret various +,-,/,* dependant on what is being passed
     //each input is taken into an List and stored to check validity
+    //if creating an identifier with an = it must start with a letter
     String input;
     List<String> validLetters = Arrays.asList("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
                                             "q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G",
