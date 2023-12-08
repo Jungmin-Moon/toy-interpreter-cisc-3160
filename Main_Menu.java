@@ -5,6 +5,7 @@ import java.util.*;
     //x = 001 is not allowed
     //can't -0 that isn't valid
 
+     //do i move this to another class to keep this clean.
     public static void start() {
         System.out.println("Welcome to the toy interpreter.");
         System.out.println("This interpreter will be able to do very basic things.");
