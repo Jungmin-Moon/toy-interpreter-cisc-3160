@@ -1,22 +1,14 @@
-import java.util.*;
  class Main_Menu {
     //Dicts for what is considered a valid digit, Letter, nonzerodigit
     //x = 1 allowed
     //x = 001 is not allowed
     //can't -0 that isn't valid
 
-     //do i move this to another class to keep this clean.
-    public static void start() {
-        System.out.println("Welcome to the toy interpreter.");
-        System.out.println("This interpreter will be able to do very basic things.");
-        System.out.println("Type in end to stop the interpreter.");
-        Scanner scan = new Scanner(System.in);
-        String input = scan.nextLine();
-        while(!input.equalsIgnoreCase("end")) {
-            Toy_Interpreter userInputs = new Toy_Interpreter((input));
-        }
-    }
+     //moved menu to another file to keep this just have the start
+     //removed import statement since this will no longer need it.
     public static void main(String[] args) {
-        start();
+        Menu_Class mc = new Menu_Class();
+        mc.welcomeMessage();
+        mc.start();
     }
 }
