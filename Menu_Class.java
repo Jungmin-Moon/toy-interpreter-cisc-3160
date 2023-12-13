@@ -8,9 +8,13 @@ public class Menu_Class {
             Toy_Interpreter userInputs = new Toy_Interpreter();
             while(!input.equalsIgnoreCase("done")) {
                 userInputs.userStatements.add(input);
+                input = scan.nextLine();
             }
             System.out.println("Output: ");
 
+
+            //input to stop or continue interpreter
+            input = scan.nextLine();
         }
     }
 
