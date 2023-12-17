@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.*;
 public class Toy_Interpreter {
     //create Dicts here of valid inputs
@@ -29,6 +28,8 @@ public class Toy_Interpreter {
     List<String> validSymbols = Arrays.asList("+", "-", "*", "/", "(", ")", "=", ";");
 
     List<String> invalidSymbols = Arrays.asList("!", "@", "#", "$", "&", "{", "}", "[", "]", ":");
+
+    List<String> output = new ArrayList<>();
     Toy_Interpreter() {
 
     }
@@ -119,44 +120,45 @@ public class Toy_Interpreter {
     //boolean validExpression
 
 
-    /*
-    Need to actually interpret each statement in a separate method
-    and find a way to read things like ---(x + y) or ---(x+y)*(x+-y)
-    cleaning inputs like x = 4 is easy with a .replaceAll("\\D+","")
-    and then Integer.parseInt to just get the int
-    It is then performing the required operations
-     */
-    //print output function
-    void printOutput() {
-        for (int i = 0; i < userStatements.size(); i++) {
 
-            String checkInput = userStatements.get(i);
+    String validityChecker(String input) {
+        String result = "";
 
-            if (endswithSemiColon((checkInput))) {
-                if (!hasInvalidSymbols(checkInput)) {
-                    if (!isLiteral((checkInput))) {
-                        if (validIdentifier(checkInput)) {
-                            if (validStart(checkInput)) {
+        if (hasInvalidSymbols(input)) {
+            result = "error";
+        } else {
+            if (isLiteral(input) && endswithSemiColon(input)) { //if it has = in and ends in a ; we move on
+                if (validIdentifier(input)) {
+                    if (validStart(input)) {
 
-                            } else {
-                                System.out.println("error");
-                                break;
-                            }
-                        } else {
-                            System.out.println("error");
-                            break;
-                        }
                     } else {
-                        System.out.println("error");
-                        break;
+                        result = "error";
                     }
                 } else {
-                    System.out.println("error");
-                    break;
+                    result = "error";
                 }
             } else {
-                System.out.println("error");
-                break;
+                result = "error";
+            }
+        }
+
+
+        return result;
+    }
+
+    void addToOutputList() {
+        for (int i = 0; i < userStatements.size(); i++) {
+            String afterCheck = validityChecker(userStatements.get(i));
+            output.add(afterCheck);
+        }
+    }
+
+    void printOutput() {
+        if (output.contains("error")) {
+            System.out.println("error");
+        } else {
+            for (String i : output) {
+                System.out.println(i);
             }
         }
     }
