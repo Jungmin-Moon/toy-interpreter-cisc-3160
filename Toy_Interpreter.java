@@ -23,7 +23,7 @@ public class Toy_Interpreter {
                                             "H","I","J","K","L","M","N","O","P",
                                             "Q","R","S","T","U","V","W","X","Y","Z","_");
     List<Integer> validInts = Arrays.asList(1,2,3,4,5,6,7,8,9);
-    List<Integer> validDigits = Arrays.asList(0,1,2,3,4,5,6,7,8,9);
+    //List<Integer> validDigits = Arrays.asList(0,1,2,3,4,5,6,7,8,9);
 
     List<String> validSymbols = Arrays.asList("+", "-", "*", "/", "(", ")", "=", ";");
 
@@ -130,7 +130,7 @@ public class Toy_Interpreter {
             if (isLiteral(input) && endswithSemiColon(input)) { //if it has = in and ends in a ; we move on
                 if (validIdentifier(input)) {
                     if (validStart(input)) {
-
+                        result = input.substring(0,input.length()-1);
                     } else {
                         result = "error";
                     }
@@ -153,13 +153,12 @@ public class Toy_Interpreter {
         }
     }
 
+
     void printOutput() {
         if (output.contains("error")) {
             System.out.println("error");
         } else {
-            for (String i : output) {
-                System.out.println(i);
-            }
+
         }
     }
 }
