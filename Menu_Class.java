@@ -11,7 +11,7 @@ public class Menu_Class {
                 input = scan.nextLine();
             }
             System.out.println("Output: ");
-
+            userInputs.printOutput();
 
             //input to stop or continue interpreter
             input = scan.nextLine();
