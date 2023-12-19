@@ -17,6 +17,8 @@ public class Toy_Interpreter {
 
      */
     String input;
+
+    ConvertInput cInput;
     List<String> userStatements = new ArrayList<>();
     List<String> validLetters = Arrays.asList("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
                                             "q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G",
@@ -31,7 +33,7 @@ public class Toy_Interpreter {
 
     List<String> output = new ArrayList<>();
     Toy_Interpreter() {
-
+        cInput = new ConvertInput();
     }
 
     //checks to see if it contains any invalid symbols
@@ -158,7 +160,7 @@ public class Toy_Interpreter {
         if (output.contains("error")) {
             System.out.println("error");
         } else {
-
+            cInput.print(output);
         }
     }
 }
