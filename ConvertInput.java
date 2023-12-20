@@ -5,12 +5,23 @@ public class ConvertInput {
 
 
     //methods for one statement, 2 and 2+ statements
+    //the others would work the same way or close to the same
     void oneStatement(List<String> oneEntryList) {
 
         String tempEntry = oneEntryList.get(0);
 
         if (tempEntry.contains("+") || tempEntry.contains("*") || tempEntry.contains("/") || tempEntry.contains("-")) {
+            if (tempEntry.contains("(") || tempEntry.contains(")")) {
 
+            } else {
+                String[] tempHold = tempEntry.split(" ");
+                //[2] and [4] should both be numbers
+                int x = Integer.parseInt(tempHold[2]);
+                int y = Integer.parseInt(tempHold[4]);
+                if (tempHold[3].equals("+")) {
+                  System.out.println(tempHold[0] + " " + "= " + x + y);
+                }
+            }
         } else {
             System.out.println(oneEntryList.get(0));
         }
