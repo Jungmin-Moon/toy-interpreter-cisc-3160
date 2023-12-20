@@ -20,7 +20,12 @@ public class ConvertInput {
                 int y = Integer.parseInt(tempHold[4]);
                 if (tempHold[3].equals("+")) {
                   System.out.println(tempHold[0] + " " + "= " + x + y);
-                }
+                } else if (tempHold[3].equals("-")) {
+                    System.out.println(tempHold[0] + " " + "= " + (x - y));
+                } else if (tempHold[3].equals("*")) {
+                    System.out.println(tempHold[0] + " " + "= " + (x * y));
+                } else
+                    System.out.println(tempHold[0] + " " + "= " + (x / y));
             }
         } else {
             System.out.println(oneEntryList.get(0));
